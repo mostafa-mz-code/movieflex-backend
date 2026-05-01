@@ -6,7 +6,7 @@
   "scripts": {
     "start": "bun run index.ts",
     "dev": "bun --watch run index.ts",
-    "build": "bun install"
+     "build": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/bun": "latest",

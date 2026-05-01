@@ -7,6 +7,9 @@ const app = express();
 app.use(express.json());
 app.use(router);
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Movie API!");
+});
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {

@@ -1,8 +1,4 @@
 {
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.ts"
-    }
-  ]
+  "bunVersion": "1.x",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.ts" }]
 }

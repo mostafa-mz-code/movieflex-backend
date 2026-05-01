@@ -4,8 +4,8 @@ export type Movie = {
   title: string;
   searchTerm: string;
   posterUrl: string;
-  movieId: string;
-  count: number;
+  movieId: number;
+  count?: number;
 };
 
 export class MovieRepository {
@@ -13,7 +13,7 @@ export class MovieRepository {
     return prisma.movie.findMany();
   }
 
-  async getMovie(movieId: string) {
+  async getMovie(movieId: number) {
     return prisma.movie.findUnique({ where: { movieId } });
   }
 

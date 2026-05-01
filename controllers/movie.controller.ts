@@ -7,7 +7,7 @@ const movieSchema = z.object({
   title: z.string(),
   searchTerm: z.string(),
   posterUrl: z.string(),
-  movieId: z.string(),
+  movieId: z.int(),
 });
 
 class MovieController {
@@ -36,16 +36,14 @@ class MovieController {
   async updateMovie(req: Request, res: Response) {
     try {
       const parsedResults = movieSchema.safeParse(req.body);
-
+      
       if (!parsedResults.success) {
         const error = z.treeifyError(parsedResults.error);
+        console.log("the Z errors: ", error);
         return res.status(400).json({ error });
       }
 
-      const updatedMovie = await movieService.updateMovie({
-        ...parsedResults.data,
-        count: 1, // or set an appropriate default or value
-      });
+      const updatedMovie = await movieService.updateMovie(parsedResults.data);
 
       return res.json({ movie: updatedMovie });
     } catch (error) {

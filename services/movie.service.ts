@@ -23,14 +23,11 @@ class MovieService {
 
       if (!existingMovie) {
         const newMovie = await movieRepository.createMovie(movie);
-        return await movieRepository.updateMovie(newMovie.id, {
-          ...newMovie,
-          count: 1,
-        });
+        return await movieRepository.updateMovie(newMovie.id, {...newMovie, count: 1});
       } else {
         return await movieRepository.updateMovie(existingMovie.id, {
           ...existingMovie,
-          count: Number(existingMovie.count) + 1,
+          count: existingMovie.count + 1,
         });
       }
     } catch (error) {

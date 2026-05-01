@@ -6,16 +6,17 @@
   "scripts": {
     "start": "bun run index.ts",
     "dev": "bun --watch run index.ts",
-     "build": "tsc --noEmit"
+    "build": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/bun": "latest",
     "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
     "@types/pg": "^8.20.0",
     "prisma": "^7.8.0"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^6.0.3"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",
